@@ -21,7 +21,13 @@ const Home: NextPage = () => {
         width: "100%",
       }}
     >
-      <h1>WebGl Test</h1>
+      <h1
+        style={{
+          color: "white",
+        }}
+      >
+        WebGl Test 0901 #1
+      </h1>
       <Unity
         style={{
           height: "90%",
