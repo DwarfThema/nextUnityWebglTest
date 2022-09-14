@@ -22,15 +22,13 @@ const Home: NextPage = () => {
     frameworkUrl: "Build/testNext.framework.js",
     codeUrl: "Build/testNext.wasm",
   });
-
-  useEffect(() => {
-    if (isBrowser) {
-      sendMessage("GameManager", "DesktopFn");
-    } else {
-      sendMessage("GameManager", "MobileFn");
-    }
-  }, []);
-
+  if (isBrowser) {
+    console.log("desktop");
+    sendMessage("GameManager", "DesktopFn");
+  } else {
+    console.log("mobilefn");
+    sendMessage("GameManager", "MobileFn");
+  }
   return (
     <>
       <GloablStyles />
