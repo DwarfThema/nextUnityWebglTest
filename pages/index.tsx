@@ -1,41 +1,65 @@
 import type { NextPage } from "next";
-import React from "react";
+import React, { useEffect } from "react";
 import { Unity, useUnityContext } from "react-unity-webgl";
+import { createGlobalStyle } from "styled-components";
+import {
+  BrowserView,
+  MobileView,
+  isBrowser,
+  isMobile,
+} from "react-device-detect";
+
+const GloablStyles = createGlobalStyle`
+  body{
+    background-color: black;
+  }
+`;
 
 const Home: NextPage = () => {
-  const { unityProvider } = useUnityContext({
+  const { unityProvider, sendMessage } = useUnityContext({
     loaderUrl: "Build/testNext.loader.js",
     dataUrl: "Build/testNext.data",
     frameworkUrl: "Build/testNext.framework.js",
     codeUrl: "Build/testNext.wasm",
   });
+
+  useEffect(() => {
+    if (isBrowser) {
+      sendMessage("GameManager", "DesktopFn");
+    } else {
+      sendMessage("GameManager", "MobileFn");
+    }
+  }, []);
+
   return (
-    <div
-      style={{
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        flexDirection: "column",
-        backgroundColor: "black",
-        height: "100%",
-        width: "100%",
-      }}
-    >
-      <h1
+    <>
+      <GloablStyles />
+      <div
         style={{
-          color: "white",
-        }}
-      >
-        WebGl Test 0901 #1
-      </h1>
-      <Unity
-        style={{
-          height: "90%",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          flexDirection: "column",
+          height: "100%",
           width: "100%",
         }}
-        unityProvider={unityProvider}
-      />
-    </div>
+      >
+        <h1
+          style={{
+            color: "white",
+          }}
+        >
+          WebGl Test 0901 #1
+        </h1>
+        <Unity
+          style={{
+            height: "90%",
+            width: "100%",
+          }}
+          unityProvider={unityProvider}
+        />
+      </div>
+    </>
   );
 };
 
