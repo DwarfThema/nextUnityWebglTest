@@ -2,7 +2,7 @@
   "public": true,
   "routes": [
     {
-      "src": "/(?<filepath>.+)\\.(?<ext>jpg)",
+      "src": "/(?<filepath>.+)\\.(?<ext>data)",
       "dest": "https://media.githubusercontent.com/media/DwarfThema/nextUnityWebglTest/main/public/Build/testNext.data",
       "headers": {
         "Cache-Control": "s-maxage=3600",
