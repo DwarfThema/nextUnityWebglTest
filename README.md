@@ -18,3 +18,5 @@
 "silent": true
 }
 }
+
+\*.data filter=lfs diff=lfs merge=lfs -text
