@@ -45,25 +45,39 @@ const Home: NextPage = () => {
           style={{
             position: "absolute",
             visibility: isLoaded ? "visible" : "hidden",
-            height: "100%",
             width: "100%",
           }}
           unityProvider={unityProvider}
         />
+
         {isLoaded ? null : (
-          <div style={{ alignSelf: "center" }}>
-            <h1
-              style={{
-                color: "white",
-              }}
-            >
-              loading now...
-            </h1>
+          <div
+            style={{
+              alignSelf: "center",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
             <div
               style={{
-                width: `${loadingProgression * 100}%`,
+                display: "flex",
+                alignItems: "center",
+                alignSelf: "center",
+                marginBottom: "20px",
+              }}
+            >
+              <img src="ebsLogo.png" style={{ height: "80px" }} />
+              <img
+                src="Prime.png"
+                style={{ height: "50px", marginLeft: "10px" }}
+              />
+            </div>
+            <div
+              style={{
+                width: `${loadingProgression * 1.15 * 100}%`,
                 height: "10px",
                 backgroundColor: "white",
+                alignSelf: "center",
               }}
             />
           </div>
