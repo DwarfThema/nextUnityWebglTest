@@ -8,9 +8,6 @@ const GloablStyles = createGlobalStyle`
     background-color: black;
   }
 `;
-/* const DATAURL = "http://127.0.0.1:3000/"; */
-/* const DATAURL =
-  "https://drive.google.com/u/0/uc?id=1qF5A-JvKjigIbGlDEYbj9HVQFG3Vm594&export=download"; */
 const DATAURL = "/Build/testNext.data";
 
 const Home: NextPage = () => {
